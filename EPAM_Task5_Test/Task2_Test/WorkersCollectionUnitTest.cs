@@ -6,11 +6,17 @@ using System.Text;
 
 namespace EPAM_Task5_Test.Task2_Test
 {
+    /// <summary>
+    /// Class for testing class WorkersCollection.
+    /// </summary>
     public class WorkersCollectionUnitTest
     {
         private WorkersCollection<Worker> _workersCollection;
         private Worker[] _workersArray;
 
+        /// <summary>
+        /// Initializes WorkersCollectionUnitTest test objects.
+        /// </summary>
         [SetUp]
         public void SetUp()
         {
@@ -29,6 +35,13 @@ namespace EPAM_Task5_Test.Task2_Test
             };
         }
 
+        /// <summary>
+        /// The method tests method Add.
+        /// </summary>
+        /// <param name="fullName"></param>
+        /// <param name="vacancy"></param>
+        /// <param name="workplace"></param>
+        /// <param name="salary"></param>
         [TestCase("Ivan", "Manager", "OOO Vector", 1526.39)]
         [TestCase("Ilya", "Director", "OOO Vector", 2620.99)]
         public void Test_Add(string fullName, string vacancy, string workplace, decimal salary)
@@ -38,6 +51,9 @@ namespace EPAM_Task5_Test.Task2_Test
             Assert.AreEqual(_workersCollection[_workersCollection.Count - 1], worker);
         }
 
+        /// <summary>
+        /// The method tests method Clear.
+        /// </summary>
         [Test]
         public void Test_Clear()
         {
@@ -46,6 +62,14 @@ namespace EPAM_Task5_Test.Task2_Test
             Assert.AreEqual(_workersCollection.Count, actualResult);
         }
 
+        /// <summary>
+        /// The method tests method Contains.
+        /// </summary>
+        /// <param name="fullName"></param>
+        /// <param name="vacancy"></param>
+        /// <param name="workplace"></param>
+        /// <param name="salary"></param>
+        /// <param name="actualResult">Is contain</param>
         [TestCase("fsfsdf", "sgsgsfg", "sgsgs", 1456.29, true)]
         [TestCase("Ivan", "Manager", "OOO Vector", 1526.39, false)]
         public void Test_Contains(string fullName, string vacancy, string workplace, decimal salary, bool actualResult)
@@ -55,6 +79,9 @@ namespace EPAM_Task5_Test.Task2_Test
             Assert.AreEqual(result, actualResult);
         }
 
+        /// <summary>
+        /// The method tests method CopyTo.
+        /// </summary>
         [Test]
         public void Test_CopyTo()
         {
@@ -69,6 +96,14 @@ namespace EPAM_Task5_Test.Task2_Test
             CollectionAssert.AreEqual(resultArray, _workersArray);
         }
 
+        /// <summary>
+        /// The method tests method Remove.
+        /// </summary>
+        /// <param name="fullName"></param>
+        /// <param name="vacancy"></param>
+        /// <param name="workplace"></param>
+        /// <param name="salary"></param>
+        /// <param name="actualResult">Is removed</param>
         [TestCase("fsfsdf", "sgsgsfg", "sgsgs", 1456.29, true)]
         [TestCase("Ivan", "Manager", "OOO Vector", 1526.39, false)]
         public void Test_Remove(string fullName, string vacancy, string workplace, decimal salary, bool actualResult)

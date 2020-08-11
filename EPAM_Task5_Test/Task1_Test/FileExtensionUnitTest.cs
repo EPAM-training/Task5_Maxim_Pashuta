@@ -8,12 +8,18 @@ using System.IO;
 
 namespace EPAM_Task5_Test.Task1_Test
 {
+    /// <summary>
+    /// Class for testing class FileExtension.
+    /// </summary>
     public class FileExtensionUnitTest
     {
         private string _filePath;
         private string _xmlFileContent;
         private CustomBinaryTree<Student> _binaryTree;
 
+        /// <summary>
+        /// Initializes FileExtensionUnitTest test objects.
+        /// </summary>
         [SetUp]
         public void Setup()
         {
@@ -65,6 +71,9 @@ namespace EPAM_Task5_Test.Task1_Test
                               "</ArrayOfStudent>";
         }
 
+        /// <summary>
+        /// The method tests method SerializeBinaryTree.
+        /// </summary>
         [Test]
         public void Test_SerializeBinaryTree()
         {
@@ -82,6 +91,9 @@ namespace EPAM_Task5_Test.Task1_Test
             Assert.AreEqual(result, actualResult);
         }
 
+        /// <summary>
+        /// The method tests method DeserializeBinaryTree.
+        /// </summary>
         [Test]
         public void Test_DeserializeBinaryTree()
         {

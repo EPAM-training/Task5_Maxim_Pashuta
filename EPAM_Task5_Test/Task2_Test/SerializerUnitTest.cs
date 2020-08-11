@@ -6,6 +6,9 @@ using System.IO;
 
 namespace EPAM_Task5_Test.Task2_Test
 {
+    /// <summary>
+    /// Class for testing class Serializer.
+    /// </summary>
     public class SerializerUnitTest
     {
         private string _xmlFilePath;
@@ -17,6 +20,9 @@ namespace EPAM_Task5_Test.Task2_Test
         private Worker _worker;
         private WorkersCollection<Worker> _workersCollection;
 
+        /// <summary>
+        /// Initializes SerializerUnitTest test objects.
+        /// </summary>
         [SetUp]
         public void Setup()
         {
@@ -38,6 +44,9 @@ namespace EPAM_Task5_Test.Task2_Test
             });
         }
 
+        /// <summary>
+        /// The method tests method SerializeToBinary with WorkersCollection and Worker.
+        /// </summary>
         [Test]
         public void Test_SerializeCollectionAndObjectToBinaryFile()
         {
@@ -49,6 +58,9 @@ namespace EPAM_Task5_Test.Task2_Test
             Assert.IsTrue(fileInfoObject.Length > 0);
         }
 
+        /// <summary>
+        /// The method tests method DeserializeFromBinary with WorkersCollection and Worker.
+        /// </summary>
         [Test]
         public void Test_DeserializeCollectionAndObjectFromBinaryFile()
         {
@@ -58,6 +70,9 @@ namespace EPAM_Task5_Test.Task2_Test
             Assert.AreEqual(result, _worker);
         }
 
+        /// <summary>
+        /// The method tests method SerializeToXml with WorkersCollection and Worker.
+        /// </summary>
         [Test]
         public void Test_SerializeCollectionAndObjectToXmlFile()
         {
@@ -69,6 +84,9 @@ namespace EPAM_Task5_Test.Task2_Test
             Assert.IsTrue(fileInfoObject.Length > 0);
         }
 
+        /// <summary>
+        /// The method tests method DeserializeFromXml with WorkersCollection and Worker.
+        /// </summary>
         [Test]
         public void Test_DeserializeCollectionAndObjectFromXmlFile()
         {
@@ -78,6 +96,9 @@ namespace EPAM_Task5_Test.Task2_Test
             Assert.AreEqual(result, _worker);
         }
 
+        /// <summary>
+        /// The method tests method SerializeToJson with WorkersCollection and Worker.
+        /// </summary>
         [Test]
         public void Test_SerializeCollectionAndObjectToJsonFile()
         {
@@ -89,6 +110,9 @@ namespace EPAM_Task5_Test.Task2_Test
             Assert.IsTrue(fileInfoObject.Length > 3);
         }
 
+        /// <summary>
+        /// The method tests method DeserializeFromJson with WorkersCollection and Worker.
+        /// </summary>
         [Test]
         public void Test_DeserializeCollectionAndObjectFromJsonFile()
         {

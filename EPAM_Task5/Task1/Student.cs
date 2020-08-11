@@ -3,15 +3,29 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace EPAM_Task5.Task1
 {
-    [Serializable]
+    /// <summary>
+    /// Class for working a student.
+    /// </summary>
     public class Student : IComparable<Student>
     {
+        /// <summary>
+        /// Test result.
+        /// </summary>
         private int _result;
 
+        /// <summary>
+        /// Student name.
+        /// </summary>
         public string StudentName { get; set; }
 
+        /// <summary>
+        /// Test name.
+        /// </summary>
         public string TestName { get; set; }
 
+        /// <summary>
+        /// Test date.
+        /// </summary>
         public DateTime Date { get; set; }
 
         public int Result
@@ -29,11 +43,21 @@ namespace EPAM_Task5.Task1
             }
         }
 
+        /// <summary>
+        /// The method for sort list.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public int CompareTo([AllowNull] Student other)
         {
             return Result.CompareTo(other.Result);
         }
 
+        /// <summary>
+        /// Method for equal the current object with the specified object.
+        /// </summary>
+        /// <param name="obj">Any object</param>
+        /// <returns>True or False</returns>
         public override bool Equals(object obj)
         {
             if (obj.GetType() != GetType())
@@ -49,11 +73,19 @@ namespace EPAM_Task5.Task1
                     (studentTest.Result == Result));
         }
 
+        /// <summary>
+        /// The method calculates the hash code for the current object.
+        /// </summary>
+        /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
             return (StudentName.GetHashCode() ^ TestName.GetHashCode() ^ Date.GetHashCode() ^ Result.GetHashCode());
         }
 
+        /// <summary>
+        /// The method creates and returns a string representation of the object.
+        /// </summary>
+        /// <returns>String representation</returns>
         public override string ToString()
         {
             return string.Format($"Student Name: {StudentName}\n" +

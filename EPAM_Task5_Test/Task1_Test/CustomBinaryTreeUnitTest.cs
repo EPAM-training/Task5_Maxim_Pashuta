@@ -6,11 +6,17 @@ using System.Collections.Generic;
 
 namespace EPAM_Task5_Test.Task1_Test
 {
+    /// <summary>
+    /// Class for testing class CustumBinaryTree.
+    /// </summary>
     public class CustomBinaryTreeUnitTest
     {
         private List<Student> _studentTests;
         private CustomBinaryTree<Student> _binaryTree;
 
+        /// <summary>
+        /// Initializes CustomBinaryTreeUnitTest test objects.
+        /// </summary>
         [SetUp]
         public void Setup()
         {
@@ -26,6 +32,9 @@ namespace EPAM_Task5_Test.Task1_Test
             _binaryTree = new CustomBinaryTree<Student>(_studentTests);
         }
 
+        /// <summary>
+        /// The method tests constructor CustomBinaryTree.
+        /// </summary>
         [Test]
         public void Test_CustomBinaryTree()
         {
@@ -34,6 +43,9 @@ namespace EPAM_Task5_Test.Task1_Test
             Assert.AreEqual(result, _binaryTree);
         }
 
+        /// <summary>
+        /// The method tests method Add.
+        /// </summary>
         [Test]
         public void Test_Add()
         {
@@ -46,6 +58,9 @@ namespace EPAM_Task5_Test.Task1_Test
             Assert.AreEqual(_binaryTree, actualResult);
         }
 
+        /// <summary>
+        /// The method tests method Add throw ArgumentException.
+        /// </summary>
         [Test]
         public void Test_Add_ThrowArgumentException()
         {
@@ -53,6 +68,9 @@ namespace EPAM_Task5_Test.Task1_Test
             Assert.That(() => _binaryTree.Add(studentTest), Throws.ArgumentException);
         }
 
+        /// <summary>
+        /// The method tests method TreeBalancing.
+        /// </summary>
         [Test]
         public void Test_TreeBalancing()
         {
@@ -72,6 +90,9 @@ namespace EPAM_Task5_Test.Task1_Test
             Assert.AreEqual(_binaryTree, actualResult);
         }
 
+        /// <summary>
+        /// The method tests method ConvertTreeToStudentTestsList.
+        /// </summary>
         [Test]
         public void Test_ConvertTreeToStudentTestsList()
         {

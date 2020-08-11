@@ -5,8 +5,16 @@ using System.Xml.Serialization;
 
 namespace EPAM_Task5.Task1.FileWork
 {
+    /// <summary>
+    /// Class for writing and reading the binary tree.
+    /// </summary>
     public static class FileExtension
     {
+        /// <summary>
+        /// The method reads the binary tree from xml file.
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="binaryTree"></param>
         public static void SerializeBinaryTree(string filePath, CustomBinaryTree<Student> binaryTree)
         {
             var studentTests = new List<Student>();
@@ -19,6 +27,11 @@ namespace EPAM_Task5.Task1.FileWork
             }
         }
 
+        /// <summary>
+        /// The method writes the binary tree to xml file.
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public static CustomBinaryTree<Student> DeserializeBinaryTree(string filePath)
         {
             using (var stream = new FileStream(filePath, FileMode.Open))

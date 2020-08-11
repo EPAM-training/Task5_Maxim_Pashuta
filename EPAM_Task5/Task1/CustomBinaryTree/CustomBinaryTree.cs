@@ -5,8 +5,16 @@ using System.Text;
 
 namespace EPAM_Task5.Task1.CustomBinaryTree
 {
+    /// <summary>
+    /// Class that implements a binary tree.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class CustomBinaryTree<T> where T : Student
     {
+        /// <summary>
+        /// Constrictor for initialization binary tree.
+        /// </summary>
+        /// <param name="studentTestsCollection"></param>
         public CustomBinaryTree(IEnumerable<T> studentTestsCollection)
         {
             foreach (T studentTest in studentTestsCollection)
@@ -15,8 +23,15 @@ namespace EPAM_Task5.Task1.CustomBinaryTree
             }
         }
 
+        /// <summary>
+        /// Binary tree root.
+        /// </summary>
         public CustomNode<T> Root { get; set; }
 
+        /// <summary>
+        /// The method adds a value to the binary tree.
+        /// </summary>
+        /// <param name="value"></param>
         public void Add(T value)
         {
             CustomNode<T> nextNode = this.Root;
@@ -59,6 +74,9 @@ namespace EPAM_Task5.Task1.CustomBinaryTree
             }
         }
 
+        /// <summary>
+        /// The method balances the tree.
+        /// </summary>
         public void TreeBalancing()
         {
             List<CustomNode<T>> nodes = new List<CustomNode<T>>();
@@ -68,6 +86,11 @@ namespace EPAM_Task5.Task1.CustomBinaryTree
             this.Root = ConvertTreeToBalancedTree(nodes, 0, nodesCount - 1);
         }
 
+        /// <summary>
+        /// The method converts the tree to the student tests list.
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="studentTestsCollection"></param>
         public void ConvertTreeToStudentTestsList(CustomNode<T> node, IList<T> studentTestsCollection)
         {
             if (node == null)
@@ -80,6 +103,13 @@ namespace EPAM_Task5.Task1.CustomBinaryTree
             ConvertTreeToStudentTestsList(node.RightNode, studentTestsCollection);
         }
 
+        /// <summary>
+        /// The method converts the tree to the balanced tree.
+        /// </summary>
+        /// <param name="nodes"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns>Tree root</returns>
         private CustomNode<T> ConvertTreeToBalancedTree(List<CustomNode<T>> nodes, int start, int end)
         {
             if (start > end)
@@ -96,6 +126,11 @@ namespace EPAM_Task5.Task1.CustomBinaryTree
             return node;
         }
 
+        /// <summary>
+        /// The method converts the tree to the nodes list.
+        /// </summary>
+        /// <param name="root"></param>
+        /// <param name="nodes"></param>
         private void ConvertTreeToNodesList(CustomNode<T> root, List<CustomNode<T>> nodes)
         {
             if (root == null)
@@ -108,6 +143,11 @@ namespace EPAM_Task5.Task1.CustomBinaryTree
             ConvertTreeToNodesList(root.RightNode, nodes);
         }
 
+        /// <summary>
+        /// Method for equal the current object with the specified object.
+        /// </summary>
+        /// <param name="obj">Any object</param>
+        /// <returns>True or False</returns>
         public override bool Equals(object obj)
         {
             if (obj.GetType() != this.GetType())
@@ -138,6 +178,10 @@ namespace EPAM_Task5.Task1.CustomBinaryTree
             return true;
         }
 
+        /// <summary>
+        /// The method calculates the hash code for the current object.
+        /// </summary>
+        /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
             List<T> thisStudentTests = new List<T>();
@@ -146,6 +190,10 @@ namespace EPAM_Task5.Task1.CustomBinaryTree
             return thisStudentTests.Select(obj => obj.GetHashCode() >> 32).Sum();
         }
 
+        /// <summary>
+        /// The method creates and returns a string representation of the object.
+        /// </summary>
+        /// <returns>String representation</returns>
         public override string ToString()
         {
             List<T> thisStudentTests = new List<T>();
