@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EPAM_Task5.Task2.Interfaces;
+using System;
 using System.Runtime.Serialization;
 
 namespace EPAM_Task5.Task2.Models
@@ -8,7 +9,7 @@ namespace EPAM_Task5.Task2.Models
     /// </summary>
     [Serializable]
     [DataContract]
-    public class Worker
+    public class Worker : ISerialize
     {
         public Worker()
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EPAM_Task5.Task2.Interfaces;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace EPAM_Task5.Task2.Models
     /// <typeparam name="T">Worker</typeparam>
     [Serializable]
     [DataContract]
-    public class WorkersCollection<T> : ICollection<T> where T : Worker
+    public class WorkersCollection<T> : ICollection<T>, ISerialize where T : Worker
     {
         [DataMember]
         private List<T> _workers;

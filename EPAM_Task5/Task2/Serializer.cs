@@ -1,11 +1,8 @@
-﻿using EPAM_Task5.Task2.Models;
-using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using EPAM_Task5.Task2.Interfaces;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization.Json;
-using System.Xml.Serialization;
 
 namespace EPAM_Task5.Task2
 {
@@ -13,7 +10,7 @@ namespace EPAM_Task5.Task2
     /// Class for reads and writes data.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public static class Serializer<T>
+    public static class Serializer<T> where T : ISerialize
     {
         /// <summary>
         /// The method writes the data to the binary file.
